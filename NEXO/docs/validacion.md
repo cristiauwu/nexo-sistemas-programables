@@ -128,6 +128,12 @@ visual ni si un texto se entiende. Tampoco sustituye a un lector de pantalla rea
   el ZIP en vez de darlo por bueno. Ahora se construye con `.verification/zip.ps1`, y se verifica
   extrayéndolo a una carpeta limpia y comparándola con el original: **59 entradas, 0 con `\`,
   0 fuera de `NEXO/`, 0 de `.verification`, contenido idéntico**.
+- **Publicación en HTTP comprobada, no supuesta.** Antes de subir a Vercel se sirvió `NEXO/`
+  por HTTP en local y se recorrieron las **6 rutas** con navegador real, escuchando la consola
+  y **todas las respuestas de red**: 0 errores, 0 advertencias y **0 respuestas 4xx o 5xx**.
+  Importa porque `file://` es permisivo con las mayúsculas del nombre de archivo y un servidor
+  Linux no lo es: un `Styles/` mal escrito funcionaría en tu equipo y daría 404 publicado.
+  También se verificó que no hay rutas absolutas (`/styles/…`), que romperían en un subdirectorio.
 
 ---
 

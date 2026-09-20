@@ -92,8 +92,19 @@ Tampoco requiere instalación.
 
 ## Publicar en línea (opcional)
 
-Sube el contenido de `NEXO/` a cualquier hosting estático, con `index.html` en la raíz.
-Las rutas usan fragmentos (`#/sensores`), así que no hace falta ninguna regla de servidor.
+El proyecto está en GitHub y se publica con Vercel:
+<https://github.com/cristiauwu/nexo-sistemas-programables>
+
+El `vercel.json` de la raíz del repositorio declara `NEXO/` como carpeta pública y desactiva
+cualquier compilación. No hay build, ni dependencias, ni variables de entorno que configurar.
+
+También sirve cualquier otro hosting estático: sube el contenido de `NEXO/` con `index.html`
+en la raíz. Las rutas usan fragmentos (`#/sensores`), así que no hace falta ninguna regla de
+reescritura en el servidor.
+
+**Comprobado:** las 6 rutas se sirvieron sobre HTTP con 0 errores de consola y 0 respuestas
+4xx, con el mismo resultado que por `file://`. Publicar no rompe el uso sin internet: son dos
+formas de abrir exactamente los mismos archivos.
 
 ---
 
