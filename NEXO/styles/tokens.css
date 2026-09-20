@@ -1,0 +1,79 @@
+/* styles/tokens.css
+   Paleta única del proyecto. Dirección cromática: papel cálido, tinta negra,
+   naranja y rosa como bloques de color, salvia para bandas.
+   Cualquier otra hoja debe usar estas variables y no literales de color. */
+:root {
+  color-scheme: light;
+
+  /* Superficies */
+  --bg: #e8e5dc;            /* papel cálido de la página */
+  --surface: #f4f2ec;       /* tarjeta o panel */
+  --surface-raised: #ffffff;/* panel destacado */
+  --stage: #fbfaf6;         /* fondo de los dibujos técnicos SVG */
+  --band-sage: #aeb6ab;     /* banda salvia de gran formato */
+  --band-rose: #e7b6c0;     /* banda rosa de gran formato */
+  --band-ink: #14150f;      /* banda negra de gran formato */
+
+  /* Tinta */
+  --text: #121311;          /* texto principal, AA sobre papel y sobre salvia */
+  --muted: #55584f;         /* texto secundario; usar solo sobre papel o tarjeta */
+  --on-dark: #f4f2ec;       /* texto sobre banda negra */
+  --line: #c9c5b9;          /* separadores suaves */
+  --line-strong: #9a968a;   /* bordes de controles interactivos */
+
+  /* Acentos. Los tonos claros son de relleno: el texto encima usa --accent-ink.
+     Los tonos "-ink" son los legibles como texto sobre papel. */
+  --accent: #dd5a22;        /* naranja de la referencia: relleno y trazos gruesos */
+  --accent-ink: #14150f;    /* texto colocado sobre --accent */
+  --accent-strong: #b8420f; /* naranja legible como texto sobre papel */
+  --rose: #e7b6c0;          /* rosa de relleno */
+  --cyan: #8e3355;          /* familia SENSORES: rosa tinta, legible como texto */
+  --amber: #8a5015;         /* familia ACTUADORES: ámbar tinta, legible como texto */
+  --danger: #a32118;
+
+  /* Tipografía. Solo fuentes locales: el proyecto funciona sin red. */
+  --font-display: 'Arial Narrow', 'Haettenschweiler', Impact, 'Franklin Gothic Condensed', sans-serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: Consolas, 'Courier New', monospace;
+
+  /* Rampas de los dibujos técnicos SVG.
+     Los degradados no llevan literales: derivan de la paleta de arriba, así que
+     cambiar --line o --rose actualiza también los SVG. Comprobado en Chromium y
+     Gecko: stop-color sí resuelve var() y color-mix().
+     Los cuatro pasos intermedios declaran antes un valor plano de reserva. En un
+     motor sin color-mix (Chrome <111, Firefox <113) la rampa pierde algo de
+     matiz, pero nunca cae a negro. */
+  --metal-1: var(--surface-raised);  /* brillo */
+  --metal-2: var(--bg);
+  --metal-3: #d9d5cb;
+  --metal-3: color-mix(in srgb, var(--bg) 50%, var(--line));
+  --metal-4: var(--line);
+  --metal-5: #b3afa3;
+  --metal-5: color-mix(in srgb, var(--line) 53%, var(--line-strong));
+  --metal-6: var(--line-strong);     /* sombra */
+  --sage-light: #ccd1ca;
+  --sage-light: color-mix(in srgb, var(--band-sage) 62%, var(--surface-raised));
+  --lens-1: #f8eaed;                 /* reflejo de la lente */
+  --lens-1: color-mix(in srgb, var(--rose) 29%, var(--surface-raised));
+  --lens-2: var(--rose);
+  --lens-3: #c8889a;                 /* paso medio rosa → rosa tinta */
+  --lens-3: color-mix(in srgb, var(--rose) 65%, var(--cyan));
+  --lens-4: var(--cyan);
+
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+  --space-7: 8rem;
+  --gutter: clamp(1.2rem, 4vw, 5rem);
+  --max-width: 1600px;
+  --radius: 22px;
+  --radius-sm: 12px;
+  --ease-out: cubic-bezier(.2, .75, .25, 1);
+}
+.accent-cyan { --module-accent: var(--cyan); }
+.accent-amber { --module-accent: var(--amber); }
+.accent-lime { --module-accent: var(--accent-strong); }
+.accent-muted { --module-accent: var(--muted); }

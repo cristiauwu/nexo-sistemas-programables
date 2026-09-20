@@ -1,0 +1,21 @@
+/* styles/learning.css */
+.learning-intro { margin-block: 1.5rem 2rem; }
+.learning-summary { font-size: clamp(1.15rem, 1.7vw, 1.5rem); line-height: 1.6; max-width: 66ch; color: var(--text); }
+.learning-steps { display: grid; grid-template-columns: 130px 1fr; gap: 1rem; padding: 1.3rem; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface); }
+.learning-steps .eyebrow { color: var(--cyan); padding-top: .25rem; }
+.learning-steps ol { margin: 0; padding-left: 1.2rem; }
+.learning-steps li { padding-left: .35rem; font-size: .93rem; margin-bottom: .4rem; }
+.learning-steps li:last-child { margin-bottom: 0; }
+.learning-takeaway { color: var(--muted); font-size: .9rem; margin-top: 1rem; }
+.learning-takeaway > span { color: var(--accent-text); }
+.technical-details { margin-block: 2rem; border: 1px solid var(--line); border-radius: 14px; padding: 0 1.4rem; background: var(--surface); }
+.technical-details > summary { display: flex; justify-content: space-between; gap: 1rem; cursor: pointer; min-height: 64px; padding-block: 1.2rem; font-size: .95rem; }
+.technical-details > summary > span { color: var(--accent-text); }
+.technical-details[open] > summary { border-bottom: 1px solid var(--line); }
+.technical-details .sensor-reading-text { columns: auto; max-width: 75ch; }
+.technical-details p { line-height: 1.85; }
+.glossary dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
+.glossary dt { font-weight: 600; margin-bottom: .4rem; }
+.glossary dd { color: var(--muted); font-size: .85rem; margin: 0; }
+@media (max-width: 600px) { .learning-steps { grid-template-columns: 1fr; gap: .7rem; } .technical-details { padding-inline: 1rem; } }
+@media print { .technical-details { break-inside: auto; } }

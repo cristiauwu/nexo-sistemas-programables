@@ -1,0 +1,61 @@
+/* styles/layout.css */
+.site-header { min-height: 88px; display: flex; align-items: center; gap: 2rem; padding: 1rem var(--gutter); border-bottom: 1px solid var(--line); background: var(--bg); position: relative; z-index: 10; }
+.brand { font-size: 2rem; font-weight: 900; letter-spacing: -.12em; text-decoration: none; display: inline-flex; align-items: center; gap: .6rem; line-height: 1; }
+.brand-mark { color: var(--accent-strong); font-size: 2.4rem; letter-spacing: 0; }
+.header-caption { font-family: var(--font-mono); font-size: .6rem; line-height: 1.4; letter-spacing: .07em; padding-left: 1.5rem; border-left: 1px solid var(--line); }
+#primary-nav { display: flex; gap: .25rem; align-items: center; margin-left: auto; }
+#primary-nav a { text-decoration: none; font-size: .8rem; padding: .65rem .9rem; border: 1px solid transparent; }
+#primary-nav a[aria-current='page'] { color: var(--accent-text); border-color: var(--line-strong); }
+.nav-code { font-family: var(--font-mono); font-size: .6rem; margin-right: .4rem; color: var(--muted); }
+.menu-toggle { display: none; }
+.section-shell { max-width: var(--max-width); margin: auto; padding: var(--space-6) var(--gutter); }
+.section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; margin-bottom: 3rem; }
+.section-heading h2 { margin-bottom: 0; }
+.section-heading .eyebrow { color: var(--accent-text); margin-bottom: 1.3rem; }
+.section-intro { color: var(--muted); max-width: 24rem; font-size: .95rem; margin-bottom: .3rem; }
+.lab-section { padding-top: 5rem; }
+.experiment-prompts, .module-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.experiment-prompts { gap: 2rem; margin-top: 2rem; }
+.experiment-prompts article { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.experiment-prompts .eyebrow { color: var(--accent-text); }
+.experiment-prompts h3 { margin-top: 1rem; font-size: 1.2rem; }
+.experiment-prompts p { font-size: .87rem; color: var(--muted); }
+.modules-section { padding-top: 2rem; }
+.module-grid { gap: 1rem; }
+.site-footer { padding: 3rem var(--gutter); display: grid; grid-template-columns: auto 1fr auto; gap: 3rem; align-items: center; }
+.footer-brand { font-weight: 900; letter-spacing: -.1em; text-decoration: none; font-size: 2.6rem; }
+.footer-brand span { color: var(--accent-strong); margin-left: .4rem; }
+.site-footer p, .footer-meta { font-size: .68rem; }
+.site-footer p { margin-bottom: .2rem; }
+.footer-meta { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; font-family: var(--font-mono); color: var(--muted); }
+.lesson-hero { padding-top: 2rem; }
+.lesson-hero-grid { display: grid; grid-template-columns: 1fr 260px; gap: 4rem; align-items: center; margin-top: 4rem; }
+.lesson-hero h1 { font-size: clamp(3rem, 6.8vw, 7rem); letter-spacing: -.065em; line-height: .98; margin-bottom: 2rem; }
+.lesson-hero .eyebrow, .lesson-art { color: var(--module-accent); }
+.lesson-subtitle { max-width: 42rem; color: var(--muted); font-size: 1.15rem; }
+.lesson-art .technical-symbol { width: 230px; }
+.lesson-art > span { display: block; text-align: center; }
+.lesson-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 5rem; padding-top: 0; }
+.lesson-sidebar { align-self: start; position: sticky; top: 2rem; }
+.lesson-sidebar nav { display: flex; flex-direction: column; }
+.lesson-content h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
+.lesson-content > section { scroll-margin-top: 2rem; }
+.lesson-section { border-top: 1px solid var(--line); padding-top: 2rem; margin-top: 3rem; }
+.lesson-section > p { color: var(--muted); }
+.empty-state { padding-block: 6rem; max-width: 1100px; }
+.empty-state h1 { font-size: clamp(3rem, 7vw, 6rem); letter-spacing: -.06em; }
+@media (max-width: 1000px) { .header-caption { display: none; } .section-heading { gap: 2rem; } .module-grid { gap: .6rem; } .lesson-layout { gap: 2rem; grid-template-columns: 200px minmax(0, 1fr); } .lesson-hero-grid { grid-template-columns: 1fr 180px; gap: 2rem; } }
+@media (max-width: 700px) {
+  .site-header { min-height: 74px; gap: 1rem; flex-wrap: wrap; }
+  .brand { font-size: 1.7rem; } .brand-mark { font-size: 2rem; }
+  .menu-toggle { display: flex; align-items: center; gap: 1rem; margin-left: auto; background: none; border: 1px solid var(--muted); padding: .5rem .8rem; min-height: 44px; font-size: .8rem; }
+  #primary-nav { display: none; width: 100%; order: 4; margin: 0; flex-wrap: wrap; padding-top: .5rem; }
+  #primary-nav.is-open { display: flex; } #primary-nav a { flex: 1 0 42%; padding: .9rem; }
+  .section-shell { padding-block: 3.5rem; } .section-heading { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .section-intro { max-width: none; } .experiment-prompts, .module-grid { grid-template-columns: 1fr; }
+  .experiment-prompts { gap: .75rem; } .experiment-prompts article { padding-top: 1rem; }
+  .site-footer { grid-template-columns: 1fr; gap: 1.5rem; }
+  .lesson-hero-grid { grid-template-columns: 1fr; margin-top: 2rem; } .lesson-art { display: none; }
+  .lesson-layout { grid-template-columns: 1fr; gap: 2rem; padding-top: 0; } .lesson-sidebar { position: static; }
+  .lesson-sidebar nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+}

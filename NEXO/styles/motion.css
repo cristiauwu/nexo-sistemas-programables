@@ -1,0 +1,9 @@
+/* styles/motion.css */
+@media (prefers-reduced-motion: no-preference) {
+  .button, .module-card, .help-button, #primary-nav a { transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
+  .module-card .technical-symbol { transition: transform 400ms var(--ease-out); }
+  .module-card:hover .technical-symbol { transform: rotate(-6deg) scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}

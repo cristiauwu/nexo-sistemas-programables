@@ -1,0 +1,88 @@
+/* El laboratorio de integración ya no es una superficie oscura: sigue la misma
+   dirección de papel claro que el resto del sitio. Se conservan los nombres
+   --ig-* porque los usan muchos selectores; todos apuntan ya a tokens.css.
+   --ig-series y --ig-accent son las dos tintas que distinguen realimentación
+   (rosa tinta, familia SENSORES) y flujo/señal (naranja legible). */
+.integration-theme { --ig-surface: var(--stage); --ig-ink: var(--text); --ig-muted: var(--muted); --ig-line: var(--line-strong); --ig-series: var(--cyan); --ig-accent: var(--accent-text); }
+.integration-theme .lesson-hero { padding-bottom:3rem; }
+.integration-theme .lesson-hero h1 { max-width:1050px; }
+.integration-lesson-content { padding-bottom:5rem; }
+.integration-section-nav { display:flex; flex-wrap:wrap; gap:.7rem 2rem; padding:1.1rem 0 2rem; border-bottom:1px solid var(--ig-line); }
+.integration-section-nav a { font-size:.88rem; color:inherit; text-decoration:none; padding:.45rem 0; }
+.integration-section-nav a:hover { text-decoration:underline; text-underline-offset:.4em; }
+.integration-theme .lesson-section { scroll-margin-top:100px; }
+.integration-theme .sensor-experiment { min-width:0; }
+.integration-lab { color-scheme:light; color:var(--ig-ink); background:linear-gradient(130deg,var(--surface-raised) 0%,var(--surface) 42%,var(--bg) 100%); border:1px solid var(--ig-line); padding:clamp(1rem,3vw,2rem); border-radius:22px; box-shadow:0 18px 44px #00000014; }
+.integration-lab header h3 { font-size:clamp(1.6rem,3vw,2.3rem); margin:.5rem 0; }
+.integration-lab p,.integration-lab small { color:var(--ig-muted); }
+.integration-lab h4 { font-size:1.3rem; line-height:1.45; margin:1.6rem 0 .5rem; color:var(--ig-ink); }
+.integration-lab .sensor-button { color:var(--ig-ink); background:var(--surface-raised); border:1px solid var(--muted); min-height:44px; }
+.integration-lab .sensor-button:hover { background:var(--bg); }
+/* Pulsado: velo neutro + subrayado grueso de acento, además del borde. */
+.integration-lab .sensor-button[aria-pressed="true"] { background:#00000008; border-color:var(--ig-accent); box-shadow:inset 0 -3px var(--ig-accent); }
+/* Sobre papel el .48 dejaba el texto por debajo de AA: se sube y se añade guion. */
+.integration-theme button:disabled { opacity:.75; border-style:dashed; cursor:not-allowed; }
+.integration-case-picker { display:flex; gap:.65rem; flex-wrap:wrap; margin-top:1.3rem; }
+.integration-arena { overflow:hidden; margin-top:1.4rem; border:1px solid var(--ig-line); border-radius:20px; background:var(--ig-surface); }
+.integration-process-svg { display:block; width:100%; height:auto; min-height:230px; }
+.integration-process-svg text { fill:var(--ig-ink); font:12px ui-monospace,SFMono-Regular,Consolas,monospace; }
+.integration-process-svg .ig-value { font-size:21px; font-weight:650; }
+.integration-process-svg .ig-overline { font-size:11px; letter-spacing:1px; fill:var(--ig-muted); }
+.ig-panel { fill:var(--ig-surface); stroke:var(--line-strong); }
+.ig-block rect { fill:var(--surface); stroke:var(--muted); }
+/* El degradado metálico definido en el SVG es oscuro y el texto que se superpone
+   es tinta negra: se sustituye por un relleno claro de la paleta. */
+.ig-metal { fill:var(--surface); stroke:var(--muted); stroke-width:2; }
+.ig-frame,.ig-wire { fill:none; stroke:var(--muted); stroke-width:3; }
+.ig-wire { stroke-width:2; }
+.ig-hub { fill:var(--text); stroke:var(--text); stroke-width:2; }
+.ig-blade { fill:var(--line); stroke:var(--text); }
+.ig-sensor { fill:var(--rose); stroke:var(--cyan); stroke-width:2; }
+.ig-heat { fill:none; stroke:var(--accent); stroke-width:7; stroke-linecap:round; }
+.ig-flow,.ig-signal { fill:none; stroke:var(--ig-accent); stroke-width:2; stroke-dasharray:7 8; }
+.ig-feedback { fill:none; stroke:var(--ig-series); stroke-width:2; stroke-dasharray:8 6; }
+/* El lazo abierto se distingue por el patrón de guiones, no por la opacidad sola. */
+.ig-feedback-open { stroke:var(--muted); stroke-dasharray:2 15; opacity:.8; }
+.ig-belt { fill:none; stroke:var(--muted); stroke-width:3; stroke-dasharray:12 15; }
+.ig-box { fill:var(--band-sage); stroke:var(--text); stroke-width:2; }
+[data-ig-box] text { fill:var(--text); font-size:10px; font-weight:bold; }
+/* El plástico se diferencia del metal por el trazo discontinuo, además del relleno. */
+[data-ig-box][data-material="plastic"] .ig-box { fill:var(--surface); stroke-dasharray:4 3; }
+.ig-detection { stroke:var(--ig-accent); stroke-width:2; stroke-dasharray:3 3; }
+.ig-pipe { fill:none; stroke:var(--line-strong); stroke-width:13; }
+.ig-valve { fill:var(--surface); stroke:var(--text); stroke-width:2; }
+.ig-fluid { stroke:var(--ig-series); stroke-width:8; stroke-linecap:round; }
+.integration-loop-status { padding:.9rem 1rem; border-left:3px solid var(--ig-accent); font-size:.88rem; line-height:1.6; background:#00000008; }
+.integration-chain { padding:0; margin:1.5rem 0; list-style:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; background:var(--ig-line); border:1px solid var(--ig-line); border-radius:13px; overflow:hidden; }
+.integration-chain li { padding:1rem; background:var(--surface-raised); min-width:0; }
+.integration-chain span { font:10px ui-monospace,Consolas,monospace; letter-spacing:.08em; color:var(--ig-muted); display:block; }
+.integration-chain strong { display:block; font-size:.95rem; line-height:1.5; margin:.8rem 0; color:var(--ig-ink); }
+.integration-chain small { display:block; font-size:.79rem; line-height:1.65; }
+.integration-controls,.integration-builder-controls { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.3rem; margin:1.6rem 0; }
+.integration-controls label,.integration-builder-controls label { display:flex; flex-direction:column; gap:.65rem; font-size:.85rem; line-height:1.5; min-width:0; }
+.integration-theme select { box-sizing:border-box; width:100%; min-height:44px; border:1px solid var(--muted); background:var(--surface-raised); color:var(--text); font:inherit; padding:.65rem .7rem; border-radius:7px; }
+.integration-controls input[type="range"] { width:100%; min-height:24px; accent-color:var(--ig-accent); }
+.integration-controls output { color:var(--ig-ink); font:12px ui-monospace,Consolas,monospace; }
+.integration-controls .integration-manual { display:grid; grid-template-columns:22px 1fr; align-content:start; align-items:start; gap:.6rem; }
+.integration-manual input { width:19px; height:19px; margin-top:2px; accent-color:var(--ig-accent); }
+.integration-manual small { grid-column:2; }
+.integration-transport { align-items:center; display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.8rem; }
+.integration-transport [data-integration-clock] { font:12px ui-monospace,Consolas,monospace; margin-left:auto; }
+.integration-prediction { padding:1rem 1.1rem; border:1px solid var(--line-strong); border-radius:10px; line-height:1.8; }
+.integration-details,.integration-history { margin-top:1.2rem; border-top:1px solid var(--ig-line); padding-top:1.1rem; }
+.integration-details summary,.integration-history summary { cursor:pointer; min-height:35px; color:var(--ig-ink); line-height:1.6; }
+.integration-details p,.integration-history p { font-size:.88rem; line-height:1.85; max-width:78ch; }
+.integration-table-scroll { width:100%; max-height:420px; overflow:auto; border:1px solid var(--ig-line); border-radius:8px; margin:1rem 0; }
+.integration-history table { width:100%; min-width:980px; border-collapse:collapse; text-align:left; font-size:.77rem; line-height:1.5; }
+.integration-history caption { text-align:left; padding:.8rem; color:var(--ig-muted); }
+.integration-history th { background:var(--surface); color:var(--ig-ink); position:sticky; top:0; }
+.integration-history th,.integration-history td { padding:.7rem .8rem; border-bottom:1px solid var(--ig-line); vertical-align:top; }
+.integration-history td { color:var(--ig-ink); }
+.integration-builder { border:1px solid var(--ig-line); border-radius:20px; padding:clamp(1rem,3vw,2rem); }
+.integration-builder-result { border-left:3px solid var(--ig-accent); padding:1rem; line-height:1.8; background:#00000008; }
+.integration-theme [hidden] { display:none !important; }
+.integration-theme :is(button,a,select,input,summary,[tabindex]):focus-visible { outline:3px solid var(--ig-accent); outline-offset:4px; }
+@media(max-width:950px) { .integration-chain { grid-template-columns:repeat(2,minmax(0,1fr)); } .integration-controls { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .integration-controls,.integration-builder-controls { grid-template-columns:1fr; } .integration-chain { grid-template-columns:1fr; } .integration-chain li { padding:.85rem; } .integration-case-picker { flex-direction:column; } .integration-process-svg { min-height:0; } .integration-arena { overflow-x:auto; } .integration-process-svg { min-width:660px; } .integration-transport [data-integration-clock] { flex-basis:100%; margin:.3rem 0; } }
+@media(prefers-reduced-motion:reduce) { .integration-theme * { scroll-behavior:auto !important; animation:none !important; transition:none !important; } .ig-signal,.ig-feedback,.ig-flow,.ig-belt { stroke-dashoffset:0 !important; } }
+@media(forced-colors:active) { .integration-lab,.integration-chain li,.integration-builder { background:Canvas; color:CanvasText; } .integration-process-svg { forced-color-adjust:none; } .integration-chain strong,.integration-chain small,.integration-chain span,.integration-lab p { color:CanvasText; } }

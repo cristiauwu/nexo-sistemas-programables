@@ -1,0 +1,5 @@
+# Finales de línea normalizados a LF dentro del repositorio.
+# Sin esto, editar desde Windows genera diferencias fantasma en archivos que
+# no cambiaron de contenido. Cada quien sigue viendo su convención local.
+* text=auto eol=lf
+*.png binary

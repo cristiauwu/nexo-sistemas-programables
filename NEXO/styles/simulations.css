@@ -1,0 +1,179 @@
+/* NEXO/styles/simulations.css */
+/* El laboratorio térmico conserva sus variables locales (las usan muchos selectores),
+   pero ahora todas apuntan a la paleta clara de tokens.css.
+   --thermal-lime era el acento verde del tema viejo: pasa a ser el naranja de relleno,
+   y --thermal-lime-ink es su versión legible como texto sobre papel. */
+.thermal-lab {
+  --thermal-bg: var(--surface);
+  --thermal-panel: var(--stage);
+  --thermal-ink: var(--text);
+  --thermal-muted: var(--muted);
+  --thermal-line: var(--line-strong);
+  --thermal-lime: var(--accent);
+  --thermal-lime-ink: var(--accent-text);
+  --thermal-cyan: var(--cyan);
+  --thermal-amber: var(--amber);
+  --thermal-trace: var(--cyan);
+  color-scheme: light;
+  color: var(--thermal-ink);
+  background: var(--thermal-bg);
+  border: 1px solid var(--thermal-line);
+  border-radius: 24px;
+  overflow: hidden;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.55;
+  isolation: isolate;
+}
+.thermal-lab *, .thermal-lab *::before, .thermal-lab *::after { box-sizing: border-box; }
+.thermal-lab [hidden] { display: none !important; }
+.thermal-lab h2, .thermal-lab h3, .thermal-lab p { margin: 0; }
+.thermal-lab button, .thermal-lab input, .thermal-lab select { font: inherit; }
+.thermal-lab button, .thermal-lab select, .thermal-lab input, .thermal-lab summary { touch-action: manipulation; }
+.thermal-lab :focus-visible { outline: 3px solid var(--thermal-cyan); outline-offset: 4px; }
+.thermal-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 32px; border-bottom: 1px solid var(--thermal-line); }
+.thermal-eyebrow { color: var(--thermal-muted); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.thermal-header h2 { font-size: clamp(24px, 3.3vw, 42px); line-height: 1.15; font-weight: 650; letter-spacing: -.045em; margin: 12px 0; }
+.thermal-header p:not(.thermal-eyebrow) { color: var(--thermal-muted); max-width: 55ch; }
+.thermal-tag { flex: 0 1 190px; font-size: 9px; letter-spacing: .13em; color: var(--thermal-lime-ink); border: 1px solid var(--thermal-line); padding: 9px 12px; border-radius: 6px; }
+.thermal-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr); }
+.thermal-scene, .thermal-controls, .thermal-history { min-width: 0; }
+.thermal-scene { padding: 24px; background: radial-gradient(ellipse at 46% 35%, #0000000a, transparent 62%), var(--thermal-panel); }
+.thermal-scene-top { display: flex; justify-content: space-between; gap: 12px; color: var(--thermal-muted); font-size: 10px; letter-spacing: .12em; }
+.thermal-scene-top [data-role="run-status"] { color: var(--thermal-lime-ink); text-align: right; }
+.thermal-reactor { margin: 12px -12px 0; }
+.thermal-reactor svg { display: block; width: 100%; height: auto; }
+/* Geometría de construcción: decorativa, se mantiene tenue a propósito. */
+.thermal-construction { stroke: var(--thermal-muted); stroke-width: .7; opacity: .45; }
+.thermal-ring { stroke: var(--thermal-lime); stroke-width: 4; opacity: .9; }
+.thermal-heat-lines { stroke: var(--thermal-amber); stroke-width: 2; }
+.thermal-svg-label { font-size: 11px; fill: var(--thermal-muted); letter-spacing: 1.4px; }
+.thermal-svg-small { font-size: 10px; fill: var(--thermal-muted); letter-spacing: 1.5px; }
+.thermal-svg-temp { font-size: 65px; font-weight: 600; letter-spacing: -3px; fill: var(--thermal-cyan); }
+.thermal-svg-unit { font-size: 11px; fill: var(--thermal-muted); letter-spacing: 2px; }
+.thermal-sensor { stroke: var(--thermal-cyan); stroke-width: 2; }
+.thermal-air { fill: none; stroke: var(--thermal-muted); stroke-width: 2; }
+.thermal-signal-path { stroke: var(--thermal-muted); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.thermal-fan { transform-box: view-box; transform-origin: 503px 190px; }
+.thermal-lab.is-fan-on .thermal-fan { animation: thermal-fan-spin .9s linear infinite; fill: var(--thermal-lime); }
+.thermal-lab.is-fan-on .thermal-air { stroke: var(--thermal-cyan); stroke-dasharray: 8 5; animation: thermal-air-flow 1.3s linear infinite; }
+.thermal-lab.is-fan-on .thermal-signal-path { stroke: var(--thermal-lime); }
+.thermal-lab.is-paused .thermal-fan, .thermal-lab.is-paused .thermal-air { animation-play-state: paused; }
+@keyframes thermal-fan-spin { to { transform: rotate(360deg); } }
+@keyframes thermal-air-flow { to { stroke-dashoffset: -26; } }
+.thermal-readings { display: grid; grid-template-columns: 1.05fr 1.1fr 1fr; gap: 12px; margin: 16px 0 24px; padding: 20px 0; border-top: 1px solid var(--thermal-line); border-bottom: 1px solid var(--thermal-line); }
+.thermal-readings > div { min-width: 0; }
+.thermal-readings > div > span { display: block; color: var(--thermal-muted); font-size: 11px; margin-bottom: 8px; }
+.thermal-readings strong { display: block; font-size: clamp(22px, 2.8vw, 34px); font-weight: 550; letter-spacing: -.04em; white-space: nowrap; line-height: 1.25; }
+.thermal-readings strong small { font-size: 13px; color: var(--thermal-muted); letter-spacing: 0; }
+.thermal-readings .thermal-fan-state { font-size: clamp(12px, 1.5vw, 17px); letter-spacing: .01em; padding-top: 9px; }
+.thermal-fan-state::after { content: ''; display: block; height: 2px; width: 24px; background: var(--thermal-muted); margin-top: 9px; }
+.is-fan-on .thermal-fan-state::after { background: var(--thermal-lime); width: 48px; }
+.thermal-chain { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; margin: 0; gap: 10px; list-style: none; }
+.thermal-chain li { padding: 12px; background: var(--surface-raised); border: 1px solid var(--thermal-line); border-radius: 7px; min-width: 0; }
+.thermal-chain span { display: block; color: var(--thermal-muted); font-size: 9px; letter-spacing: .1em; }
+.thermal-chain b { display: block; font-size: 12px; font-weight: 550; margin: 8px 0 5px; }
+.thermal-chain small { display: block; color: var(--thermal-muted); font-size: 10px; }
+.thermal-controls { border-left: 1px solid var(--thermal-line); padding: 26px; }
+.thermal-controls h3 { font-size: 20px; font-weight: 550; line-height: 1.3; margin: 8px 0 26px; letter-spacing: -.025em; }
+.thermal-control { margin-bottom: 22px; }
+.thermal-label-row { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.thermal-control label { font-size: 12px; font-weight: 550; }
+.thermal-control output { color: var(--thermal-ink); font-size: 19px; white-space: nowrap; }
+.thermal-control p, .thermal-control-note { color: var(--thermal-muted); font-size: 11px; }
+.thermal-control input[type="range"] { display: block; width: 100%; min-width: 0; margin: 3px 0 8px; height: 28px; accent-color: var(--thermal-lime); cursor: pointer; }
+.thermal-control select { width: 100%; min-width: 0; margin-top: 9px; border: 1px solid var(--muted); border-radius: 7px; padding: 11px 8px; color: var(--thermal-ink); background: var(--surface-raised); cursor: pointer; }
+.thermal-manual { display: flex; align-items: center; gap: 10px; font-size: 12px; padding: 12px; margin: -6px 0 20px; border: 1px solid var(--thermal-line); border-radius: 7px; }
+.thermal-manual input { accent-color: var(--thermal-lime); width: 20px; height: 20px; flex-shrink: 0; }
+.thermal-manual label { cursor: pointer; }
+.thermal-rule { border-left: 2px solid var(--thermal-lime); padding: 4px 0 4px 14px; margin: 24px 0; }
+.thermal-rule > span { font-size: 9px; font-weight: 650; color: var(--thermal-muted); letter-spacing: .15em; }
+.thermal-rule p { margin-top: 7px; font-size: 12px; }
+.thermal-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 18px; }
+.thermal-actions button { min-height: 44px; border: 1px solid var(--muted); background: var(--surface-raised); color: var(--thermal-ink); border-radius: 7px; padding: 9px 10px; font-size: 12px; cursor: pointer; }
+/* Pausa: bloque naranja con tinta --accent-ink (4.86:1). */
+.thermal-actions [data-role="pause"] { background: var(--thermal-lime); color: var(--accent-ink); border-color: var(--accent-ink); font-weight: 700; }
+.thermal-actions [data-role="reset"] { grid-column: 1 / -1; background: transparent; }
+.thermal-actions button:hover:not(:disabled) { border-color: var(--thermal-cyan); border-width: 2px; padding: 8px 9px; }
+/* Deshabilitado: además del gris, borde discontinuo y opacidad; no es solo color. */
+.thermal-actions button:disabled { color: var(--muted); background: var(--bg); cursor: not-allowed; border-style: dashed; border-color: var(--line-strong); }
+.thermal-history { padding: 26px 32px; border-top: 1px solid var(--thermal-line); background: var(--thermal-panel); }
+.thermal-history-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
+.thermal-history-heading h3 { font-size: 21px; letter-spacing: -.025em; font-weight: 550; margin-top: 5px; }
+.thermal-history-heading > span { color: var(--thermal-muted); font-size: 11px; }
+.thermal-legend { display: flex; flex-wrap: wrap; gap: 10px 24px; color: var(--thermal-muted); font-size: 11px; }
+.thermal-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.thermal-legend i { display: inline-block; width: 22px; height: 0; border-top: 2px solid var(--thermal-trace); }
+.thermal-legend .thermal-key-on { border-top: 2px dashed var(--thermal-amber); }
+.thermal-legend .thermal-key-off { border-top: 2px dotted var(--thermal-muted); }
+.thermal-chart-help { color: var(--thermal-muted); font-size: 11px; margin-top: 12px !important; max-width: 100ch; }
+.thermal-chart { display: block; width: 100%; height: auto; min-width: 0; overflow: visible; margin-top: 16px; border-radius: 4px; }
+.thermal-chart path { fill: none; vector-effect: non-scaling-stroke; }
+.thermal-grid path { stroke: var(--line); stroke-width: 1; }
+.thermal-grid text, .thermal-axis text { fill: var(--thermal-muted); stroke: none; font-size: 12px; font-variant-numeric: tabular-nums; }
+.thermal-chart-label { fill: var(--thermal-ink); font-size: 12px; }
+.thermal-threshold-line { stroke: var(--thermal-amber); stroke-width: 1.5; stroke-dasharray: 7 5; }
+.thermal-off-line { stroke: var(--thermal-muted); stroke-width: 1.5; stroke-dasharray: 2 5; }
+.thermal-trace { stroke: var(--thermal-trace); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.thermal-endpoint, .thermal-hover-point { fill: var(--thermal-trace); stroke: var(--thermal-panel); stroke-width: 2; }
+.thermal-crosshair { stroke: var(--thermal-ink); stroke-width: 1; opacity: .75; }
+/* En lazo abierto las referencias se atenúan, pero no por debajo de 3:1: lo que
+   las distingue sigue siendo su patrón de guiones (7 5 umbral, 2 5 apagado). */
+.is-open-loop .thermal-threshold-line, .is-open-loop .thermal-off-line { opacity: .8; }
+.thermal-tooltip { font-size: 12px; color: var(--thermal-ink); padding: 10px 12px; border-left: 3px solid var(--thermal-trace); background: var(--surface-raised); font-variant-numeric: tabular-nums; }
+.thermal-history details { margin-top: 18px; color: var(--thermal-muted); font-size: 12px; }
+.thermal-history summary { cursor: pointer; padding: 8px 0; }
+.thermal-table-wrap { max-height: 270px; overflow: auto; margin-top: 10px; }
+.thermal-history table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--thermal-ink); }
+.thermal-history caption { text-align: left; padding: 8px; color: var(--thermal-muted); }
+.thermal-history th, .thermal-history td { text-align: right; border-bottom: 1px solid var(--thermal-line); padding: 8px; }
+.thermal-history th { position: sticky; top: 0; background: var(--thermal-panel); font-weight: 550; }
+.thermal-history th:first-child, .thermal-history td:first-child { text-align: left; }
+.thermal-footnote { padding: 18px 32px; border-top: 1px solid var(--thermal-line); color: var(--thermal-muted); font-size: 10px; letter-spacing: .02em; }
+.thermal-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px !important; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 900px) {
+  .thermal-layout { grid-template-columns: minmax(0, 1fr); }
+  .thermal-controls { border-left: 0; border-top: 1px solid var(--thermal-line); }
+  .thermal-reactor { max-width: 680px; margin-inline: auto; }
+  .thermal-readings strong { font-size: 30px; }
+  .thermal-readings .thermal-fan-state { font-size: 16px; }
+}
+@media (max-width: 520px) {
+  .thermal-lab { border-radius: 14px; }
+  .thermal-header { padding: 22px 16px; flex-direction: column; gap: 14px; }
+  .thermal-tag { flex-basis: auto; }
+  .thermal-scene, .thermal-controls, .thermal-history { padding: 20px 16px; }
+  .thermal-scene-top { font-size: 8px; letter-spacing: .06em; }
+  .thermal-readings { gap: 8px; }
+  .thermal-readings strong { font-size: 23px; }
+  .thermal-readings > div > span { font-size: 9px; }
+  .thermal-readings .thermal-fan-state { font-size: 10px; padding-top: 7px; }
+  .thermal-chain { grid-template-columns: minmax(0, 1fr); }
+  .thermal-chain li { display: grid; grid-template-columns: 95px minmax(0, 1fr); column-gap: 10px; align-items: baseline; }
+  .thermal-chain b { margin: 0; }
+  .thermal-chain small { grid-column: 2; margin-top: 3px; }
+  .thermal-history-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .thermal-history-heading h3 { font-size: 20px; }
+  .thermal-chart { min-height: 150px; }
+  .thermal-footnote { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .thermal-lab .thermal-fan, .thermal-lab .thermal-air { animation: none !important; }
+  .thermal-lab *, .thermal-lab *::before, .thermal-lab *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+@media (forced-colors: active) {
+  .thermal-lab { border-color: CanvasText; }
+  .thermal-chart .thermal-trace, .thermal-chart .thermal-threshold-line, .thermal-chart .thermal-off-line, .thermal-chart .thermal-crosshair { stroke: CanvasText; }
+  .thermal-chart text { fill: CanvasText; }
+  .thermal-chart .thermal-grid path { stroke: GrayText; }
+  .thermal-chart circle { fill: CanvasText; stroke: Canvas; }
+  .thermal-legend i { border-color: CanvasText; }
+  .thermal-reactor { forced-color-adjust: none; }
+}
+@media print {
+  .thermal-lab .thermal-fan, .thermal-lab .thermal-air { animation: none !important; }
+  .thermal-controls { display: none; }
+  .thermal-layout { grid-template-columns: minmax(0, 1fr); }
+  .thermal-chart { break-inside: avoid; }
+}

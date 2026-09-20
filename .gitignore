@@ -1,0 +1,12 @@
+# Herramientas internas de auditoría: no forman parte de la entrega ni del sitio.
+# Contienen node_modules (~47 MB) y capturas de referencia.
+.verification/
+
+# El ZIP se genera; no se versiona.
+*.zip
+
+# Ruido del sistema operativo y de los editores.
+Thumbs.db
+desktop.ini
+.DS_Store
+.vercel/

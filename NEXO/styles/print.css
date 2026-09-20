@@ -1,0 +1,35 @@
+/* styles/print.css
+   Impresión en blanco y negro: se neutraliza toda la paleta a grises y se
+   suprimen rellenos y degradados, de modo que las láminas salgan legibles
+   aunque la impresora no tenga color. */
+:root {
+  color-scheme: light;
+  --bg: #fff; --surface: #fff; --surface-raised: #fff; --stage: #fff;
+  --band-sage: #fff; --band-rose: #fff; --band-ink: #000;
+  --text: #000; --muted: #333; --on-dark: #fff;
+  --line: #999; --line-strong: #555;
+  --accent: #fff; --accent-ink: #000; --accent-strong: #000; --accent-text: #000;
+  --rose: #fff; --cyan: #000; --amber: #000; --danger: #000;
+}
+.site-header, .site-footer, .skip-link, dialog, .menu-toggle, .thermal-controls { display: none !important; }
+/* Los bloques de color plano se convierten en caja con filete negro. */
+.button-primary, .thermal-actions [data-role="pause"] { background: none; color: #000; border: 1px solid #000; }
+.sensor-button[aria-pressed='true'], .sensor-button[aria-selected='true'] { background: none; color: #000; border: 1px solid #000; }
+.sensor-experiment, .integration-lab, .industry-lab .industry-plant, .thermal-lab, .thermal-scene, .thermal-history { background: none; box-shadow: none; }
+.sensor-visual svg, .device-stage { background-image: none; }
+body { font-size: 11pt; }
+.section-shell { padding: 1.5rem 0; }
+/* Portada: el titular baja a una medida de página y las rejillas se apilan.
+   Los selectores siguen al marcado actual de editorial-home.js; las reglas
+   antiguas de .hero* se retiraron al desaparecer ese marcado. */
+.editorial-intro #home-title { font-size: 48pt; }
+.lesson-hero h1 { font-size: 44pt; }
+/* Banda negra a sangre: en papel solo gasta tinta y su texto va repetido arriba. */
+.editorial-closing, .editorial-stage-buttons, .module-art, .lesson-sidebar { display: none; }
+.editorial-bento, .section-heading, .lesson-layout { display: block; }
+.module-grid, .experiment-prompts { display: block; }
+.module-card, .experiment-prompts article, .lesson-section { break-inside: avoid; margin-bottom: 1rem; }
+.module-card p { min-height: 0; }
+a { text-decoration: none; }
+h2 { font-size: 24pt; }
+.thermal-lab { break-inside: avoid; }

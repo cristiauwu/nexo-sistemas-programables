@@ -1,0 +1,27 @@
+/* styles/actuators.css */
+/* La familia ACTUADORES reusa los componentes de sensores redefiniendo --cyan a --amber. */
+.actuators-theme { --cyan: var(--amber); }
+.actuators-theme .sensor-experiment { background: linear-gradient(135deg, var(--surface-raised), var(--surface)); }
+.actuators-theme .sensor-challenge { border-color: var(--amber); }
+.device-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: .5rem; margin-bottom: 2rem; }
+.device-select { text-align: left; border: 1px solid var(--muted); background: var(--surface-raised); color: var(--text); padding: .8rem; font-size: .85rem; line-height: 1.4; min-height: 90px; }
+.device-select > span { display: block; font-family: var(--font-mono); color: var(--amber); font-size: .65rem; margin-bottom: .6rem; }
+.device-select small { display: block; margin-top: .4rem; color: var(--muted); font-size: .65rem; }
+/* Seleccionado: borde ámbar de 2px + velo neutro, para no depender solo del tono. */
+.device-select[aria-pressed='true'] { border: 2px solid var(--amber); padding: calc(.8rem - 1px); background: #00000008; }
+.device-select:hover { border-color: var(--amber); }
+.device-stage { background-color: var(--stage); background-image: radial-gradient(var(--line-strong) .7px, transparent .7px); background-size: 16px 16px; }
+.device-stage svg { width: 100%; }
+.device-information { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+.device-information p, .device-information dd { font-size: .87rem; color: var(--muted); }
+.device-information dt { color: var(--amber); font: .65rem/1.5 var(--font-mono); text-transform: uppercase; margin-top: 1.3rem; letter-spacing: .06em; }
+.device-information dd { margin: .4rem 0 0; }
+.actuation-chain, .family-chain { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; margin-block: 1rem; }
+.actuation-chain > span, .family-chain > div { padding: .75rem; border: 1px solid var(--line-strong); min-width: 0; font: .58rem/1.4 var(--font-mono); color: var(--muted); }
+.actuation-chain strong { display: block; margin-top: .5rem; font-size: .7rem; color: var(--amber); font-weight: normal; }
+.family-chain strong { display: block; margin-top: 1rem; font-family: var(--font-body); color: var(--text); font-size: 1.2rem; line-height: 1.4; }
+.device-power { border: 0; padding: 0; }
+.actuators-theme .sensor-controls input { accent-color: var(--amber); }
+.actuators-theme svg { max-width: 100%; }
+@media (max-width: 1100px) { .device-information { padding: 1.5rem 0 0; border-left: 0; border-top: 1px solid var(--line); } }
+@media (max-width: 550px) { .device-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); } .family-chain { grid-template-columns: 1fr; } .family-chain strong { margin-top: .5rem; } .actuation-chain { gap: .3rem; } .actuation-chain > span { padding: .5rem; overflow-wrap: anywhere; } }

@@ -1,0 +1,87 @@
+/* styles/industry.css — Deliberately scoped to the phase 7 laboratory. */
+/* --industry-accent es la tinta ámbar de la familia ACTUADORES: legible como texto y borde. */
+.industry-lab { --industry-accent: var(--amber); min-width: 0; }
+.industry-lab > header { max-width: 72ch; }
+.industry-lab p, .industry-lab li { line-height: 1.65; }
+.industry-lab h3 { line-height: 1.15; }
+.industry-lab h4 { margin: .6rem 0; font-size: 1.1rem; }
+.industry-lab details { border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.15rem; margin-block: .8rem; background: var(--surface); }
+.industry-lab summary { cursor: pointer; font-weight: 600; color: var(--text); line-height: 1.5; }
+.industry-lab details[open] > summary { margin-bottom: 1rem; color: var(--industry-accent); }
+.industry-lab details p, .industry-lab details li { color: var(--muted); font-size: .9rem; }
+.industry-lab strong { color: var(--text); }
+.industry-lab :is(button, select, input, summary, [tabindex]):focus-visible { outline: 3px solid var(--industry-accent); outline-offset: 4px; }
+.industry-lab .industry-criteria-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.industry-lab .industry-criteria-grid section { padding: 1rem; border-top: 1px solid var(--line); min-width: 0; }
+/* El plano de planta era una lámina negra; ahora es el fondo de dibujo claro --stage. */
+.industry-lab .industry-plant { margin-top: 1.5rem; border: 1px solid var(--line-strong); border-radius: 26px; background: var(--stage); padding: clamp(.8rem, 2vw, 1.5rem); overflow: hidden; }
+.industry-lab .industry-plant-toolbar { display: flex; gap: 1rem; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.industry-lab .industry-plant-toolbar p { margin: 0; }
+.industry-lab .industry-plant-toolbar button { border-radius: 100px; min-height: 44px; }
+.industry-lab .industry-map { display: block; width: 100%; height: auto; margin: 1rem 0 0; }
+.industry-lab .industry-trunk { fill: none; stroke: var(--line-strong); stroke-width: 2; }
+.industry-lab .industry-station { cursor: pointer; }
+.industry-lab .industry-station-card { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1; }
+.industry-lab .industry-station:hover .industry-station-card { stroke: var(--text); }
+/* Estación activa: relleno con velo neutro + borde ámbar de 2px, no solo color. */
+.industry-lab .industry-station.is-active .industry-station-card { fill: var(--surface-raised); stroke: var(--industry-accent); stroke-width: 2; }
+.industry-lab .industry-station-index { fill: var(--muted); font: 9px var(--font-mono, monospace); letter-spacing: .45px; }
+.industry-lab .industry-station-label { fill: var(--text); font: 12px var(--font-body, sans-serif); }
+.industry-lab .industry-map-note { fill: var(--muted); font: 14px var(--font-mono, monospace); }
+.industry-lab .industry-node-light { fill: var(--line-strong); stroke: var(--muted); }
+.industry-lab .industry-station.is-active .industry-node-light { fill: var(--industry-accent); stroke: var(--industry-accent); }
+.industry-lab .industry-fin { stroke: var(--muted); stroke-width: 2; fill: none; }
+.industry-lab .industry-shaft { stroke: var(--text); stroke-width: 5; fill: none; stroke-linecap: round; }
+.industry-lab .industry-pipe { stroke: var(--line-strong); stroke-width: 9; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.industry-lab .industry-arm { stroke: var(--muted); stroke-width: 13; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.industry-lab .industry-flow { stroke: var(--muted); stroke-width: 2; fill: none; stroke-linecap: round; stroke-dasharray: 7 8; }
+.industry-lab .industry-station.is-active .industry-flow { stroke: var(--industry-accent); }
+.industry-lab .industry-station.animate .industry-flow { animation: industry-flow-drift 8s linear infinite; }
+.industry-lab .industry-station-buttons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-block: 1rem .25rem; }
+.industry-lab .industry-station-buttons button { display: flex; align-items: center; gap: .7rem; text-align: left; min-height: 48px; min-width: 0; padding: .7rem .8rem; border: 1px solid var(--muted); border-radius: 12px; color: var(--text); background: var(--surface-raised); font: inherit; font-size: .8rem; overflow-wrap: anywhere; cursor: pointer; }
+.industry-lab .industry-station-buttons button span { font: .65rem var(--font-mono); color: var(--muted); }
+/* Pulsado: velo neutro y barra ámbar interior; el indicador no es solo el tono de fondo. */
+.industry-lab .industry-station-buttons button[aria-pressed='true'] { background: #00000008; border-color: var(--industry-accent); box-shadow: inset 4px 0 0 var(--industry-accent); }
+.industry-lab .industry-station-buttons button:hover { border-color: var(--industry-accent); }
+.industry-lab .industry-case-detail { border-left: 3px solid var(--industry-accent); margin-block: 1.5rem 2rem; padding-left: clamp(.8rem, 2vw, 1.5rem); }
+.industry-lab .industry-case-detail h3 { margin: .5rem 0; }
+.industry-lab .industry-selector { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.industry-lab .industry-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1.5rem; }
+.industry-lab .industry-form > label { display: flex; flex-direction: column; gap: .5rem; font-size: .85rem; min-width: 0; }
+.industry-lab .industry-case-field, .industry-lab .industry-sources { grid-column: 1 / -1; }
+.industry-lab .industry-form select { width: 100%; min-height: 46px; padding: .7rem .55rem; border: 1px solid var(--muted); border-radius: 10px; color: var(--text); background: var(--surface-raised); font: inherit; }
+.industry-lab .industry-sources { min-width: 0; margin: .3rem 0 0; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; }
+.industry-lab .industry-sources legend { padding-inline: .35rem; font-weight: 600; font-size: .9rem; }
+.industry-lab .industry-sources label { display: inline-flex; gap: .5rem; align-items: center; min-height: 44px; margin-right: 1rem; font-size: .85rem; cursor: pointer; }
+.industry-lab .industry-sources input { width: 18px; height: 18px; accent-color: var(--industry-accent); }
+.industry-lab .industry-sources p { color: var(--muted); font-size: .8rem; margin-bottom: 0; }
+.industry-lab .industry-status { padding: 1rem 1.2rem; border: 1px solid var(--industry-accent); border-radius: 14px; color: var(--text); background: var(--surface); font-weight: 600; }
+.industry-lab .industry-verdict { margin-block: 1.2rem; }
+.industry-lab .industry-verdict h4 { font-size: 1.4rem; }
+.industry-lab .industry-verdict p, .industry-lab .industry-verdict li { font-size: .9rem; color: var(--muted); }
+.industry-lab .industry-table-scroll { overflow-x: auto; border-radius: 8px; }
+.industry-lab table { width: 100%; min-width: 480px; border-collapse: collapse; text-align: left; font-size: .8rem; }
+.industry-lab caption { text-align: left; color: var(--muted); padding: 0 0 .8rem; line-height: 1.6; }
+.industry-lab th, .industry-lab td { padding: .8rem; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+.industry-lab th { color: var(--text); font-weight: 600; }
+.industry-lab td { color: var(--muted); }
+.industry-lab thead { background: var(--surface); }
+.industry-lab .industry-rejections > li { margin-bottom: 1rem; }
+.industry-lab ul, .industry-lab ol { padding-left: 1.35rem; }
+@keyframes industry-flow-drift { to { stroke-dashoffset: -30; } }
+@media (prefers-reduced-motion: reduce) {
+  .industry-lab .industry-station.animate .industry-flow { animation: none; }
+}
+@media (max-width: 700px) {
+  .industry-lab .industry-station-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .industry-lab .industry-criteria-grid, .industry-lab .industry-form { grid-template-columns: 1fr; }
+  .industry-lab .industry-criteria-grid section { padding-inline: 0; }
+  .industry-lab .industry-map { min-width: 0; }
+  .industry-lab .industry-plant-toolbar { align-items: flex-start; }
+}
+@media print {
+  .industry-lab .industry-station.animate .industry-flow { animation: none; }
+  .industry-lab .industry-plant-toolbar button { display: none; }
+  .industry-lab .industry-table-scroll { overflow: visible; }
+  .industry-lab table { min-width: 0; }
+}

@@ -1,0 +1,85 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e8e5dc">
+  <meta name="description" content="NEXO: laboratorio interactivo de Sistemas Programables. Explora cómo una señal se convierte en una decisión y una acción física.">
+  <title>NEXO — Sistemas Programables</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <link rel="stylesheet" href="./styles/simulations.css">
+  <link rel="stylesheet" href="./styles/sensors.css">
+  <link rel="stylesheet" href="./styles/actuators.css">
+  <link rel="stylesheet" href="./styles/industry.css">
+  <link rel="stylesheet" href="./styles/integration.css">
+  <link rel="stylesheet" href="./styles/editorial.css">
+  <link rel="stylesheet" href="./styles/learning.css">
+  <link rel="stylesheet" href="./styles/motion.css">
+  <link rel="stylesheet" href="./styles/print.css" media="print">
+  <script defer src="./scripts/core/registry.js"></script>
+  <script defer src="./scripts/config/modules.js"></script>
+  <script defer src="./content/home.js"></script>
+  <script defer src="./content/tema-01.js"></script>
+  <script defer src="./content/tema-02.js"></script>
+  <script defer src="./content/integration.js"></script>
+  <script defer src="./content/industrial-cases.js"></script>
+  <script defer src="./content/learning-guide.js"></script>
+  <script defer src="./scripts/core/storage.js"></script>
+  <script defer src="./scripts/core/motion.js"></script>
+  <script defer src="./scripts/components/ui.js"></script>
+  <script defer src="./scripts/components/learning-blocks.js"></script>
+  <script defer src="./scripts/components/editorial-home.js"></script>
+  <script defer src="./scripts/models/control.js"></script>
+  <script defer src="./scripts/simulations/automation-loop.js"></script>
+  <script defer src="./scripts/models/sensor-physics.js"></script>
+  <script defer src="./scripts/simulations/sensor-signals.js"></script>
+  <script defer src="./scripts/simulations/sensor-optics.js"></script>
+  <script defer src="./scripts/simulations/sensor-physics.js"></script>
+  <script defer src="./scripts/components/assessment.js"></script>
+  <script defer src="./scripts/components/sensor-lesson.js"></script>
+  <script defer src="./scripts/models/motors.js"></script>
+  <script defer src="./scripts/models/mechanics.js"></script>
+  <script defer src="./scripts/simulations/electric-devices.js"></script>
+  <script defer src="./scripts/simulations/motors.js"></script>
+  <script defer src="./scripts/simulations/mechanics.js"></script>
+  <script defer src="./scripts/components/actuator-lesson.js"></script>
+  <script defer src="./scripts/models/selection.js"></script>
+  <script defer src="./scripts/models/integration.js"></script>
+  <script defer src="./scripts/simulations/industrial-plant.js"></script>
+  <script defer src="./scripts/simulations/integration-lab.js"></script>
+  <script defer src="./scripts/components/integration-lesson.js"></script>
+  <script defer src="./scripts/core/router.js"></script>
+  <script defer src="./scripts/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="#/inicio" aria-label="NEXO, inicio">NEXO<span class="brand-mark" aria-hidden="true">↗</span></a>
+    <span class="header-caption">SISTEMAS<br>PROGRAMABLES</span>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menú <span aria-hidden="true">＋</span></button>
+    <nav id="primary-nav" aria-label="Navegación principal"></nav>
+    <button class="help-button" type="button" data-help aria-label="Abrir guía del laboratorio">?</button>
+  </header>
+  <main id="contenido" tabindex="-1"></main>
+  <footer class="site-footer">
+    <a class="footer-brand" href="#/inicio">NEXO<span aria-hidden="true">↗</span></a>
+    <div><p>DEL MUNDO FÍSICO A LA ACCIÓN.</p><p class="muted">Sistemas Programables · Ingeniería en Sistemas Computacionales</p></div>
+    <div class="footer-meta"><span>EDICIÓN 04 / SISTEMAS CONECTADOS</span><button class="text-button" type="button" data-help>Acerca del laboratorio ↗</button></div>
+  </footer>
+  <dialog id="guide-dialog" aria-labelledby="guide-title">
+    <div class="dialog-top"><span class="eyebrow">MANUAL DE EXPLORACIÓN</span><button type="button" class="icon-button" data-close aria-label="Cerrar guía">×</button></div>
+    <h2 id="guide-title">Aprende cambiando<br>lo que ocurre.</h2>
+    <p>NEXO es un laboratorio educativo, no un sistema conectado a equipos reales. Las simulaciones hacen visibles relaciones entre magnitudes físicas, señales y acciones.</p>
+    <ol class="guide-steps"><li><strong>Predice.</strong> ¿Qué pasará si aumenta el calor?</li><li><strong>Experimenta.</strong> Modifica una variable cada vez.</li><li><strong>Explica.</strong> Observa la lectura, la decisión y la respuesta.</li></ol>
+    <p>Usa Tab para recorrer los controles y las flechas para ajustar los deslizadores. Puedes pausar el tiempo y avanzar paso a paso. Se respeta la preferencia de movimiento reducido de tu dispositivo.</p>
+    <p class="note">Incluye Sensores, Actuadores, selección industrial y tres procesos integrados. Los diagramas son modelos educativos: no conectan con equipos reales ni sustituyen especificaciones de seguridad. Consulta LEEME y docs/validacion.md para conocer las comprobaciones y sus límites. Base académica: antología de Sistemas Programables del Instituto Tecnológico Superior de Uruapan, unidades 1 y 2.</p>
+    <button class="button button-primary" type="button" data-close>Entendido <span aria-hidden="true">↗</span></button>
+  </dialog>
+  <noscript><div class="no-script">NEXO necesita JavaScript para las simulaciones y la navegación. Actívalo en el navegador y vuelve a abrir este archivo. No se necesita conexión a internet.</div></noscript>
+</body>
+</html>
